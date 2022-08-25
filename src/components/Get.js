@@ -45,17 +45,16 @@ const Get=() =>{
             < div className="get">
                 {console.log(user, 'user list')}
                 {
-                    user.map((el) => {
-                        <>
-                        <a>{el.subject}</a>
-                        document.write("<br/>");
-                        <a href="el.url">뉴스 링크 url</a>
-                        document.write("<br/>");
-                        </>
-                })
-                }
+                    user.map((el) =>
+                        <div className="News">
+                            <a>{el.subject}</a>
+                            <br/>
+                            <a href={el.url} target='_blank'>뉴스 링크 url</a>
 
-            </div>
+                        </div>
+                    )})
+
+             </div>
         </div>
     );
 }
