@@ -4,6 +4,7 @@ import qs from "qs";
 import '../assests/Css.css';
 const Post=() => {
     const [id, setId] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
     const [msg, setMsg] = useState('');
@@ -18,10 +19,11 @@ const Post=() => {
         setMsg("회원가입에 성공하였습니다.");
         const ax = {
             userid: id,
+            username: name,
             password: password,
         }
 
-        axios.post('http://dev-spis.newssalad.com:8081/user/login',
+        axios.post('http://dev-spis.newssalad.com:8081/user/join',
             qs.stringify(ax),
             setMsg("sending")
         )
@@ -47,7 +49,7 @@ const Post=() => {
                             />
                         <div>
                             name
-                            <input type="text" onKeyUp={handleOnKeyPress}
+                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyUp={handleOnKeyPress}
                             />
                         </div>
                         <div>
