@@ -29,12 +29,18 @@ const Post=() => {
         )
             .then(function (response) {
                 console.log(response);
-                setMsg("다시 시도해 주세요");
+                console.log(response.statusText)
+                if (response.statusText =="OK"){
+                    setMsg("회원가입에 성공하였습니다.")
+                }else {
+                    setMsg("다시 시도해 주세요");
+                }
+
 
             })
             .catch(function (error) {
                 console.log(error);
-
+                
             });
     }
         return (
@@ -44,17 +50,17 @@ const Post=() => {
                 </p>
                     <div>
                         </div>
-                           ID
-                            <input type="text" id="id" value={id} onChange={(e) => setId(e.target.value)} onKeyUp={handleOnKeyPress}
+                <div className="LN">ID</div>
+                            <input type="text" id="id" value={id} onChange={(e) => setId(e.target.value)} onKeyUp={handleOnKeyPress} placeholder="아이디를 입력해주세요"
                             />
                         <div>
-                            name
-                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyUp={handleOnKeyPress}
+                            <div className="LN">name</div>
+                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} onKeyUp={handleOnKeyPress} placeholder="이름을 입력해주세요"
                             />
                         </div>
                         <div>
-                            PW
-                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyUp={handleOnKeyPress}
+                            <div className="LN">PW</div>
+                            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} onKeyUp={handleOnKeyPress} placeholder="비밀번호를 입력해주세요"
                             />
                         </div>
                         <div>
